@@ -1,0 +1,174 @@
+%PDF-1.4
+% ASCII-only CV copy
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R] /Count 2 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 7 0 R >>
+endobj
+7 0 obj
+<< /Length 5686 >>
+stream
+BT /F2 17 Tf 229.0 758.0 Td (YUBO ZHANG) Tj ET
+BT /F1 9.5 Tf 126.0 741.0 Td (Email: yz4891@columbia.edu | Tel: 646-529-4035 | LinkedIn | Homepage) Tj ET
+1.4 w 44.0 733.0 m 568.0 733.0 l S
+BT /F2 12 Tf 44.0 716.0 Td (EDUCATION BACKGROUND) Tj ET
+0.5 w 44.0 713.0 m 568.0 713.0 l S
+BT /F2 9.5 Tf 44.0 699.0 Td (Columbia University) Tj ET
+BT /F1 9 Tf 493.0 699.0 Td (New York, NY) Tj ET
+BT /F1 9 Tf 60.0 688.0 Td (- Ph.D. in Electrical Engineering) Tj ET
+BT /F1 9 Tf 476.0 688.0 Td (Aug. 2024 - Now) Tj ET
+BT /F1 9 Tf 60.0 677.0 Td (- Overall GPA: 4.0/4.3) Tj ET
+BT /F1 9 Tf 60.0 666.0 Td (- Advisor: Prof. Xiaodong Wang) Tj ET
+BT /F2 9.5 Tf 44.0 653.0 Td (University of Science and Technology of China \(USTC\)) Tj ET
+BT /F1 9 Tf 493.0 653.0 Td (Hefei, China) Tj ET
+BT /F1 9 Tf 60.0 642.0 Td (- Master of Science in Information and Communication Engineering) Tj ET
+BT /F1 9 Tf 476.0 642.0 Td (Sept. 2021 - Jul. 2024) Tj ET
+BT /F1 9 Tf 60.0 631.0 Td (- Overall GPA: 3.6/4.3) Tj ET
+BT /F1 9 Tf 60.0 620.0 Td (- Advisor: Prof. Chen Gong) Tj ET
+BT /F2 9.5 Tf 44.0 607.0 Td (University of Science and Technology of China \(USTC\)) Tj ET
+BT /F1 9 Tf 493.0 607.0 Td (Hefei, China) Tj ET
+BT /F1 9 Tf 60.0 596.0 Td (- Bachelor of Engineering in Electronic Information Engineering) Tj ET
+BT /F1 9 Tf 476.0 596.0 Td (Sept. 2017 - Jul. 2021) Tj ET
+BT /F1 9 Tf 60.0 585.0 Td (- Overall GPA: 3.7/4.3, ranking top 10% out of 313 students) Tj ET
+BT /F2 12 Tf 44.0 572.0 Td (SELECTED RESEARCH EXPERIENCE) Tj ET
+0.5 w 44.0 569.0 m 568.0 569.0 l S
+BT /F2 10 Tf 44.0 555.0 Td (Transformer for Scalable MU-MISO Beamforming Optimization) Tj ET
+BT /F3 9 Tf 470.0 555.0 Td (Apr. 2025 - Oct. 2025) Tj ET
+BT /F3 9 Tf 44.0 543.0 Td (Research Assistant, Columbia) Tj ET
+BT /F1 8.8 Tf 60.0 532.0 Td (- Designed and trained a multi-layer Transformer model from scratch for large-scale MU-MISO) Tj ET
+BT /F1 8.8 Tf 60.0 521.5 Td (  beamforming optimization, integrating curriculum learning and semi-amortized learning) Tj ET
+BT /F1 8.8 Tf 60.0 511.0 Td (  strategies.) Tj ET
+BT /F1 8.8 Tf 60.0 500.5 Td (- Implemented the full architecture and training pipeline in PyTorch. Achieved 5% higher sum-) Tj ET
+BT /F1 8.8 Tf 60.0 490.0 Td (  rate than the WMMSE algorithm with only 3% of its inference time, while maintaining strong) Tj ET
+BT /F1 8.8 Tf 60.0 479.5 Td (  generalization to dynamic communication scenarios.) Tj ET
+BT /F1 8.8 Tf 60.0 469.0 Td (- Employed random masked attention to enhance scalability and robustness, and planned trainable) Tj ET
+BT /F1 8.8 Tf 60.0 458.5 Td (  sparse attention for improved training efficiency.) Tj ET
+BT /F2 10 Tf 44.0 441.0 Td (Encoder-Decoder Network for FDD Large-Scale Sparse Channel Precoding) Tj ET
+BT /F3 9 Tf 470.0 441.0 Td (Sep. 2024 - Apr. 2025) Tj ET
+BT /F3 9 Tf 44.0 429.0 Td (Research Assistant, Columbia) Tj ET
+BT /F1 8.8 Tf 60.0 418.0 Td (- Designed and trained an encoder-decoder network for channel recovery and beamforming design) Tj ET
+BT /F1 8.8 Tf 60.0 407.5 Td (  under large-scale sparse channels, and extended the framework to hybrid beamforming under) Tj ET
+BT /F1 8.8 Tf 60.0 397.0 Td (  far-field and near-field scenarios.) Tj ET
+BT /F1 8.8 Tf 60.0 386.5 Td (- Completed the problem formulation, architecture, training algorithm, and PyTorch) Tj ET
+BT /F1 8.8 Tf 60.0 376.0 Td (  implementation. Addressed local-optima entrapment and feedback overhead; the model) Tj ET
+BT /F1 8.8 Tf 60.0 365.5 Td (  outperformed MMSE baselines by 13% - 37% across channel models and SNR settings.) Tj ET
+BT /F2 10 Tf 44.0 348.0 Td (Resource Allocation Optimization for Keyless Positive-Rate Covert Communication) Tj ET
+BT /F3 9 Tf 470.0 348.0 Td (Feb. 2024 - Aug. 2024) Tj ET
+BT /F3 9 Tf 44.0 336.0 Td (Research Assistant, Columbia) Tj ET
+BT /F1 8.8 Tf 60.0 325.0 Td (- Developed an MDP model and trained a deep Q-network tailored to causal allocation problems;) Tj ET
+BT /F1 8.8 Tf 60.0 314.5 Td (  proposed multi-step non-convex optimization schemes for non-causal allocation problems.) Tj ET
+BT /F1 8.8 Tf 60.0 304.0 Td (- Completed the optimization and DQN framework design and PyTorch implementation. The DQN) Tj ET
+BT /F1 8.8 Tf 60.0 293.5 Td (  approach improved covert-rate performance by 10% - 26% compared with average-allocation) Tj ET
+BT /F1 8.8 Tf 60.0 283.0 Td (  schemes.) Tj ET
+BT /F2 10 Tf 44.0 265.5 Td (Graph-Based Conflict-Free MAC Protocol for the Communication Network) Tj ET
+BT /F3 9 Tf 470.0 265.5 Td (Dec. 2022 - Jun. 2023) Tj ET
+BT /F3 9 Tf 44.0 253.5 Td (Research Assistant, USTC) Tj ET
+BT /F1 8.8 Tf 60.0 242.5 Td (- Designed a resource-allocation scheme for a two-layer network, analyzed link interference) Tj ET
+BT /F1 8.8 Tf 60.0 232.0 Td (  using a conflict graph and Monte-Carlo simulation, and optimized routing algorithms.) Tj ET
+BT /F1 8.8 Tf 60.0 221.5 Td (- Contributed to interference-model analysis, routing-algorithm design, and data-fitting work.) Tj ET
+BT /F2 10 Tf 44.0 204.0 Td (Multi-User Uplink Communications with Spatial-Multiplexing Receiver) Tj ET
+BT /F3 9 Tf 470.0 204.0 Td (Sept. 2022 - Mar. 2023) Tj ET
+BT /F3 9 Tf 44.0 192.0 Td (Research Assistant, USTC) Tj ET
+BT /F1 8.8 Tf 60.0 181.0 Td (- Designed pilot sequences using an analytical MSE objective, analyzed Gaussian approximation,) Tj ET
+BT /F1 8.8 Tf 60.0 170.5 Td (  and adopted successive-elimination detection to handle unknown interference.) Tj ET
+BT /F1 8.8 Tf 60.0 160.0 Td (- Implemented the estimation/detection schemes in MATLAB. The pilot design approached optimal) Tj ET
+BT /F1 8.8 Tf 60.0 149.5 Td (  estimation MSE, while SED achieved nearly ML-level BER with only 5% - 10% of the execution) Tj ET
+BT /F1 8.8 Tf 60.0 139.0 Td (  time.) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R >> >> /Contents 9 0 R >>
+endobj
+9 0 obj
+<< /Length 5738 >>
+stream
+BT /F2 12 Tf 44.0 758.0 Td (SELECTED PROJECT EXPERIENCE) Tj ET
+0.5 w 44.0 755.0 m 568.0 755.0 l S
+BT /F2 10 Tf 44.0 741.0 Td (1Mbps Multi-User Ad-hoc Ultraviolet Optical Communication System on FPGA) Tj ET
+BT /F3 9 Tf 470.0 741.0 Td (Apr. 2023 - Sept. 2023) Tj ET
+BT /F3 9 Tf 44.0 729.0 Td (Hardware Engineer, Software Engineer) Tj ET
+BT /F1 8.8 Tf 60.0 718.0 Td (- Achieved network synchronization using beacon sequences, designed the frame structure, and) Tj ET
+BT /F1 8.8 Tf 60.0 707.5 Td (  developed a multi-transceiver TDMA communication network.) Tj ET
+BT /F1 8.8 Tf 60.0 697.0 Td (- Integrated physical- and MAC-layer modules, conducted system-level testing, and completed FPGA) Tj ET
+BT /F1 8.8 Tf 60.0 686.5 Td (  development/debugging of synchronization and TDMA modules.) Tj ET
+BT /F2 10 Tf 44.0 669.0 Td (TDOA-Based Ultraviolet Positioning System on FPGA) Tj ET
+BT /F3 9 Tf 470.0 669.0 Td (May 2021 - Sept. 2021) Tj ET
+BT /F3 9 Tf 44.0 657.0 Td (Hardware Engineer) Tj ET
+BT /F1 8.8 Tf 60.0 646.0 Td (- Developed a TDOA-based ultraviolet positioning system and conducted large-scale outdoor field) Tj ET
+BT /F1 8.8 Tf 60.0 635.5 Td (  tests.) Tj ET
+BT /F1 8.8 Tf 60.0 625.0 Td (- Responsible for system-level code implementation, data acquisition, and performance) Tj ET
+BT /F1 8.8 Tf 60.0 614.5 Td (  validation.) Tj ET
+BT /F2 10 Tf 44.0 597.0 Td (10Kbps Multi-Service Real-Time Ultraviolet Optical Communication System on FPGA) Tj ET
+BT /F3 9 Tf 470.0 597.0 Td (May 2021 - Sept. 2021) Tj ET
+BT /F3 9 Tf 44.0 585.0 Td (Software Engineer, Test Engineer) Tj ET
+BT /F1 8.8 Tf 60.0 574.0 Td (- Developed an FPGA-based ultraviolet optical communication system, designed synchronization and) Tj ET
+BT /F1 8.8 Tf 60.0 563.5 Td (  frame structure, and implemented simultaneous real-time video, audio, and text transmission.) Tj ET
+BT /F1 8.8 Tf 60.0 553.0 Td (- Completed coding for audio and text transmissions and coordinated system integration.) Tj ET
+BT /F2 12 Tf 44.0 535.5 Td (PUBLICATIONS) Tj ET
+0.5 w 44.0 532.5 m 568.0 532.5 l S
+BT /F1 7.8 Tf 60.0 518.5 Td (- Yubo Zhang, Xiao-Yang Liu, and Xiaodong Wang, "Transformer-based Scalable Beamforming Optimization) Tj ET
+BT /F1 7.8 Tf 60.0 509.2 Td (  via Deep Residual Learning," ArXiv preprint ArXiv:2510.13077 \(2025\).) Tj ET
+BT /F1 7.8 Tf 60.0 498.9 Td (- Yubo Zhang, Jeremy Johnston, and Xiaodong Wang, "An Encoder-Decoder Network for Beamforming over) Tj ET
+BT /F1 7.8 Tf 60.0 489.6 Td (  Sparse Large-Scale MIMO Channels," ArXiv preprint ArXiv:2510.02355 \(2025\).) Tj ET
+BT /F1 7.8 Tf 60.0 479.3 Td (- Yubo Zhang, Hassan ZivariFard, and Xiaodong Wang, "Power and Rate Allocations for Positive-rate) Tj ET
+BT /F1 7.8 Tf 60.0 470.0 Td (  Covert Communications in Block-Fading Channels," IEEE Transactions on Wireless Communications) Tj ET
+BT /F1 7.8 Tf 60.0 460.7 Td (  \(Revision\).) Tj ET
+BT /F1 7.8 Tf 60.0 450.4 Td (- Yubo Zhang, Yuchen Pan, Chen Gong, Beiyuan Liu and Zhengyuan Xu, "Channel Estimation and Signal) Tj ET
+BT /F1 7.8 Tf 60.0 441.1 Td (  Detection for NLOS Ultraviolet Scattering Communication with Space Division Multiple Access," IEEE) Tj ET
+BT /F1 7.8 Tf 60.0 431.8 Td (  Transactions on Communications 72.10 \(2024\): 6427-6441.) Tj ET
+BT /F1 7.8 Tf 60.0 421.5 Td (- Yubo Zhang, Chen Gong, and Zhengyuan Xu, "Bi-directional ultra-violet communication with self-) Tj ET
+BT /F1 7.8 Tf 60.0 412.2 Td (  interference," Opt. Express 30 \(21\), 38534-38549 \(2022\).) Tj ET
+BT /F1 7.8 Tf 60.0 401.9 Td (- Yifan Ding, Yubo Zhang, Huabin Yu, Chen Gong, Haiding Sun, and Zhengyuan Xu, "266 nm ultraviolet) Tj ET
+BT /F1 7.8 Tf 60.0 392.6 Td (  communication under unknown interference using UVC micro-LED," Opt. Express 31.10 \(2023\):) Tj ET
+BT /F1 7.8 Tf 60.0 383.3 Td (  16406-16422.) Tj ET
+BT /F1 7.8 Tf 60.0 373.0 Td (- Yuchen Pan, Yubo Zhang, Fei Long, Ping Li, Haotian Shi, Jiazhao Shi, Hanlin Xiao, Chen Gong,) Tj ET
+BT /F1 7.8 Tf 60.0 363.7 Td (  Zhengyuan Xu, "Beacon-enabled TDMA Ultraviolet Communication Network Design and Realization,") Tj ET
+BT /F1 7.8 Tf 60.0 354.4 Td (  CSNDSP 2024.) Tj ET
+BT /F1 7.8 Tf 60.0 344.1 Td (- Yuchen Pan, Fei Long, Yubo Zhang, Shihui Yu, Junfan Chen, Chen Gong, and Zhengyuan Xu, "Beacon-Based) Tj ET
+BT /F1 7.8 Tf 60.0 334.8 Td (  Time Synchronization Protocol Design for Layered Ultraviolet Communication Network," IEEE) Tj ET
+BT /F1 7.8 Tf 60.0 325.5 Td (  Transactions on Communications \(2025\).) Tj ET
+BT /F1 7.8 Tf 60.0 315.2 Td (- Yuchen Pan, Guanchu Wang, Yubo Zhang, Jingyin Tang, Chen Gong, and Zhengyuan Xu, "Graph-based) Tj ET
+BT /F1 7.8 Tf 60.0 305.9 Td (  conflict-free MAC protocol and conflict analysis for a two-layer ultraviolet communication) Tj ET
+BT /F1 7.8 Tf 60.0 296.6 Td (  network," JOCN 15.6 \(2023\): 381-392.) Tj ET
+BT /F1 7.8 Tf 60.0 286.3 Td (- Yifan Ding, Chen Gong, Weijie Liu, Yubo Zhang, Haiding Sun and Zhengyuan Xu, "Multi-Input UV) Tj ET
+BT /F1 7.8 Tf 60.0 277.0 Td (  Communication with Adaptive Gain Adjustment," Journal of Lightwave Technology, vol. 43, no. 3, pp.) Tj ET
+BT /F1 7.8 Tf 60.0 267.7 Td (  1170-1178 \(2025\).) Tj ET
+BT /F2 12 Tf 44.0 254.4 Td (SKILLS & AWARDS) Tj ET
+0.5 w 44.0 251.4 m 568.0 251.4 l S
+BT /F1 8.3 Tf 60.0 237.4 Td (- Programming: Python \(6 yrs\), PyTorch \(4 yrs\), C \(4 yrs\), C++ \(2 yrs\), MATLAB \(6 yrs\), Verilog \(4) Tj ET
+BT /F1 8.3 Tf 60.0 227.4 Td (  yrs\)) Tj ET
+BT /F1 8.3 Tf 60.0 217.4 Td (- Awards: G.D.C. Corporation Scholarship \(2%\), Outstanding Graduates of USTC \(10%\), Excellent Students) Tj ET
+BT /F1 8.3 Tf 60.0 207.4 Td (  of USTC, Silver Award \(10%, for two years\)) Tj ET
+BT /F1 8.3 Tf 60.0 197.4 Td (- Relevant courses: Optimization \(100/100\), Stochastic process \(97/100\), Optical network \(97/100\)) Tj ET
+endstream
+endobj
+xref
+0 10
+0000000000 65535 f 
+0000000030 00000 n 
+0000000079 00000 n 
+0000000142 00000 n 
+0000000212 00000 n 
+0000000287 00000 n 
+0000000365 00000 n 
+0000000511 00000 n 
+0000006248 00000 n 
+0000006394 00000 n 
+trailer
+<< /Size 10 /Root 1 0 R >>
+startxref
+12183
+%%EOF
