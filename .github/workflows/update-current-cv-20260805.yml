@@ -1,0 +1,196 @@
+name: Update current CV
+
+on:
+  push:
+    paths:
+      - '.github/workflows/update-current-cv-20260805.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Download current CV and replace website PDF
+        env:
+          CV_FOLDER_URL: 'https://drive.google.com/drive/folders/1bxE-qhreT6jhpQpvqrLI6AUW_aYC8v0-'
+        run: |
+          python -m pip install --disable-pip-version-check gdown
+          python <<'PY'
+          from __future__ import annotations
+
+          import os
+          import re
+          import shutil
+          from pathlib import Path
+          from urllib.parse import unquote, urlsplit
+
+          import gdown
+
+          root = Path.cwd()
+          download_dir = Path('/tmp/current-cv')
+          download_dir.mkdir(parents=True, exist_ok=True)
+
+          downloaded = gdown.download_folder(
+              url=os.environ['CV_FOLDER_URL'],
+              output=str(download_dir),
+              quiet=False,
+              use_cookies=False,
+              remaining_ok=True,
+          )
+          if not downloaded:
+              raise RuntimeError('No files were downloaded from the supplied Google Drive folder.')
+
+          pdfs = [p for p in download_dir.rglob('*') if p.is_file() and p.suffix.lower() == '.pdf']
+          if not pdfs:
+              raise RuntimeError('The supplied Google Drive folder does not contain a PDF CV.')
+
+          def cv_source_score(path: Path) -> tuple[int, int, str]:
+              name = path.name.lower()
+              score = 0
+              for token, weight in (
+                  ('cv', 20), ('resume', 18), ('curriculum', 15),
+                  ('fred', 8), ('yubo', 8), ('zhang', 8), ('2026', 12),
+                  ('current', 10), ('latest', 10), ('final', 4),
+              ):
+                  if token in name:
+                      score += weight
+              for token, weight in (('old', -30), ('backup', -25), ('draft', -12), ('archive', -25)):
+                  if token in name:
+                      score += weight
+              return score, path.stat().st_size, name
+
+          source_pdf = max(pdfs, key=cv_source_score)
+          print(f'Selected current CV: {source_pdf}')
+
+          ignored_dirs = {'.git', 'node_modules', 'vendor', '_site', 'dist', 'build'}
+          text_suffixes = {'.html', '.htm', '.md', '.markdown', '.liquid', '.jsx', '.tsx', '.js', '.ts', '.json', '.yaml', '.yml'}
+          text_files = [
+              p for p in root.rglob('*')
+              if p.is_file()
+              and p.suffix.lower() in text_suffixes
+              and not any(part in ignored_dirs for part in p.relative_to(root).parts)
+              and p.as_posix() != '.github/workflows/update-current-cv-20260805.yml'
+          ]
+
+          link_hits: list[tuple[int, Path, str]] = []
+          anchor_re = re.compile(
+              r'<a\b[^>]*?href\s*=\s*(["\'])(?P<href>.*?)(?:\1)[^>]*>(?P<body>.*?)</a>',
+              flags=re.IGNORECASE | re.DOTALL,
+          )
+          markdown_re = re.compile(r'\[(?P<label>[^\]]+)\]\((?P<href>[^)]+)\)', flags=re.IGNORECASE)
+          tag_re = re.compile(r'<[^>]+>')
+
+          for path in text_files:
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              for match in anchor_re.finditer(text):
+                  label = tag_re.sub(' ', match.group('body'))
+                  label = re.sub(r'\s+', ' ', label).strip().lower()
+                  href = match.group('href').strip()
+                  score = 0
+                  if re.search(r'\b(cv|résumé|resume|curriculum vitae)\b', label, flags=re.IGNORECASE):
+                      score += 100
+                  if re.search(r'(cv|resume|curriculum)', href, flags=re.IGNORECASE):
+                      score += 35
+                  if href.lower().split('?', 1)[0].endswith('.pdf'):
+                      score += 20
+                  if score:
+                      link_hits.append((score, path, href))
+              for match in markdown_re.finditer(text):
+                  label = match.group('label').strip().lower()
+                  href = match.group('href').strip().split()[0].strip('<>')
+                  score = 0
+                  if re.search(r'\b(cv|résumé|resume|curriculum vitae)\b', label, flags=re.IGNORECASE):
+                      score += 100
+                  if re.search(r'(cv|resume|curriculum)', href, flags=re.IGNORECASE):
+                      score += 35
+                  if href.lower().split('?', 1)[0].endswith('.pdf'):
+                      score += 20
+                  if score:
+                      link_hits.append((score, path, href))
+
+          local_targets: list[tuple[int, Path, Path, str]] = []
+          for score, source_file, href in link_hits:
+              parsed = urlsplit(href)
+              if parsed.scheme or parsed.netloc or href.startswith('//'):
+                  continue
+              clean_path = unquote(parsed.path).strip()
+              if not clean_path.lower().endswith('.pdf'):
+                  continue
+              candidates = []
+              if clean_path.startswith('/'):
+                  candidates.append(root / clean_path.lstrip('/'))
+              else:
+                  candidates.extend((source_file.parent / clean_path, root / clean_path))
+              for candidate in candidates:
+                  try:
+                      candidate = candidate.resolve()
+                      candidate.relative_to(root.resolve())
+                  except (ValueError, OSError):
+                      continue
+                  if candidate.exists() and candidate.is_file():
+                      local_targets.append((score + 100, candidate, source_file, href))
+
+          repo_pdfs = [
+              p for p in root.rglob('*.pdf')
+              if p.is_file() and '.git' not in p.parts
+          ]
+          for pdf in repo_pdfs:
+              name = pdf.name.lower()
+              score = 0
+              if 'cv' in name:
+                  score += 70
+              if 'resume' in name or 'curriculum' in name:
+                  score += 65
+              if any(href.lstrip('/').split('?', 1)[0] in pdf.as_posix() for _, _, href in link_hits):
+                  score += 100
+              if score:
+                  local_targets.append((score, pdf.resolve(), root / 'index.html', ''))
+
+          if local_targets:
+              _, target_pdf, _, _ = max(local_targets, key=lambda item: (item[0], -len(item[1].as_posix())))
+              print(f'Replacing existing CV target in place: {target_pdf.relative_to(root)}')
+          else:
+              target_pdf = root / 'files' / 'Fred_Zhang_CV.pdf'
+              target_pdf.parent.mkdir(parents=True, exist_ok=True)
+              if not link_hits:
+                  raise RuntimeError('Could not locate the website CV/Resume button or an existing CV PDF.')
+              _, link_file, old_href = max(link_hits, key=lambda item: item[0])
+              text = link_file.read_text(encoding='utf-8')
+              new_href = '/files/Fred_Zhang_CV.pdf'
+              if old_href not in text:
+                  raise RuntimeError(f'Located CV link {old_href!r}, but could not replace it in {link_file}.')
+              link_file.write_text(text.replace(old_href, new_href), encoding='utf-8')
+              print(f'Updated CV link in {link_file.relative_to(root)}: {old_href} -> {new_href}')
+
+          shutil.copyfile(source_pdf, target_pdf)
+          if target_pdf.stat().st_size < 10_000:
+              raise RuntimeError('Downloaded CV PDF is unexpectedly small; refusing to publish it.')
+          print(f'Published CV PDF: {target_pdf.relative_to(root)} ({target_pdf.stat().st_size} bytes)')
+          PY
+
+      - name: Commit and publish CV replacement
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          if git diff --cached --quiet; then
+            echo 'No CV change detected.'
+            exit 0
+          fi
+          git commit -m 'Update CV linked from personal website'
+          git push
