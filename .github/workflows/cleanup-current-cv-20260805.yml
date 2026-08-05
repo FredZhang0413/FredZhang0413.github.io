@@ -1,0 +1,53 @@
+name: Clean up temporary CV updater
+
+on:
+  push:
+    paths:
+      - '.github/workflows/cleanup-current-cv-20260805.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Wait for CV replacement commit
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="${GITHUB_REF_NAME}"
+          found=0
+          for attempt in $(seq 1 36); do
+            git fetch origin "$branch"
+            if git log "origin/$branch" --since='15 minutes ago' --format='%s' | grep -Fxq 'Update CV linked from personal website'; then
+              found=1
+              break
+            fi
+            echo "Waiting for CV replacement run (${attempt}/36)..."
+            sleep 10
+          done
+          if [ "$found" -ne 1 ]; then
+            echo 'CV replacement commit was not detected; retaining temporary workflows for diagnosis.'
+            exit 1
+          fi
+
+      - name: Remove temporary workflow files
+        shell: bash
+        run: |
+          set -euo pipefail
+          branch="${GITHUB_REF_NAME}"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin "$branch"
+          git reset --hard "origin/$branch"
+          rm -f .github/workflows/update-current-cv-20260805.yml
+          rm -f .github/workflows/cleanup-current-cv-20260805.yml
+          git add -A
+          git commit -m 'Remove temporary CV update workflows'
+          git push origin "HEAD:$branch"
